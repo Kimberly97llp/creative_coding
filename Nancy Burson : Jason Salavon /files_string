@@ -1,0 +1,10 @@
+import os
+
+directory = 'pics'  # Change this to the path of your image directory
+
+image_paths = [os.path.join(directory, file) for file in os.listdir(directory) if file.endswith('.jpeg') or file.endswith('.jpg')]
+
+with open('imagePaths.js', 'w') as f:
+    f.write('let imagePaths = [' + ', '.join([f'"{path}"' for path in image_paths]) + '];')
+
+print('Image paths saved to imagePaths.js')
